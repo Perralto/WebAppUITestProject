@@ -1,2 +1,2 @@
 # WebAppUITestProject
-Projet test entrée Smood
+Projet test Candidature Smood
