@@ -1,5 +1,4 @@
 const{Builder, By, Key, until} = require("selenium-webdriver");
-const{waitForServer} = require("selenium-webdriver/http/util");
 
 loginValue = "stephane.dileo@gmail.com"
 passValue = "TestQA2022"
@@ -35,18 +34,5 @@ async function loginTestFirefox() {
   connectButton.click();
 }
 
-async function loginTestSafari() {
-  let driver = await new Builder().forBrowser("safari").build();
-  await driver.get("https://www.smood.ch/fr");
-  let loginButton = driver.findElement(By.className("gbx-button --connect-button"));
-  loginButton.click();
-  await driver.wait(until.elementLocated(By.className("gbx-auth-content")), 20000, 'Timed out after 20 seconds', 4000).then(el => el.getText().then(x => console.log(x)));
-  driver.findElement(By.id("login-email")).sendKeys(loginValue);
-  driver.findElement(By.id("login-password")).sendKeys(passValue);
-  let connectButton = driver.findElement(By.id("loginButton"));
-  connectButton.click();
-}
-
-// loginTestChrome();
-// loginTestFirefox();
-loginTestSafari();
+loginTestChrome();
+loginTestFirefox();
