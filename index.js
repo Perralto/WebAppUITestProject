@@ -1,15 +1,20 @@
+// Importation les éléments nécessaires au lancement du test.
 const{Builder, By, Key, until} = require("selenium-webdriver");
 
+// Définition d'une table des navigateurs testés ainsi que les informations de connexion..
+// ..avec " loginValue -> Email " et " passValue -> Mot de passe ".
 const browsers = ["chrome", "firefox", "safari"];
 loginValue = "stephane.dileo@gmail.com"
 passValue = "TestQA2022"
 
+// Définition d'une fonction " sleep " qui permet d'attendre un temps 'x' en ms.
 function sleep(ms) {
   return new Promise((resolve) => {
     setTimeout(resolve, ms);
   });
 }
 
+// Définition de la fonction " loginTest " qui permet de tester une authentification.
 async function loginTest() {
   for (const element of browsers) {
     let driver = await new Builder().forBrowser(element).build();
